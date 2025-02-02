@@ -51,7 +51,7 @@
 
     <div class="container" id="main-content">
         <h1 id="question">Will you be my Valentine? 🥰</h1>
-        <img id="cat" src="photo_4_2025-02-02_23-18-50.jpg" alt="Cat with flower">
+        <img id="cat" src="photo_3_2025-02-02_23-18-50.jpg" alt="Cat with flower">
         <br>
         <button id="yes">Yes ❤️</button>
         <button id="no">No ❌</button>
@@ -69,13 +69,13 @@
 
         // Список грустных котиков
         const sadCats = [
+            "photo_4_2025-02-02_23-18-50.jpg",
+            "photo_5_2025-02-02_23-18-50.jpg",
             "photo_6_2025-02-02_23-18-50.jpg",
-            "photo_7_2025-02-02_23-18-50.jpg",
-            "photo_3_2025-02-02_23-18-50.jpg",
-            "photo_5_2025-02-02_23-18-50.jpg"
+            "photo_7_2025-02-02_23-18-50.jpg"
         ];
 
-         // Список уникальных сообщений для каждой страницы
+        // Список уникальных сообщений для каждой страницы
         const messagesForPages = {
             'page1.html': "Pookie, please, don't say no! 😢",
             'page2.html': "I promise I'll be the best Valentine! 💖",
@@ -105,7 +105,7 @@
             count++;
             noBtn.style.fontSize = `${20 - count * 3}px`; // Уменьшаем "No"
             yesBtn.style.fontSize = `${20 + count * 5}px`; // Увеличиваем "Yes"
-            message.innerText = "Pookie, please :("; 
+            message.innerText = pageMessage; // Отображаем уникальное сообщение для каждой страницы
 
             if (count >= 5) {
                 noBtn.style.display = "none"; // Убираем "No" после 5 нажатий
@@ -115,4 +115,3 @@
 
 </body>
 </html>
-
