@@ -49,7 +49,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="main-content">
         <h1 id="question">Will you be my Valentine? 🥰</h1>
         <img id="cat" src="photo_4_2025-02-02_23-18-50.jpg" alt="Cat with flower">
         <br>
@@ -65,27 +65,29 @@
         const question = document.getElementById("question");
         const catImg = document.getElementById("cat");
         const message = document.getElementById("message");
+        const mainContent = document.getElementById("main-content");
 
-        // Список изображений грустного котика
+        // Список грустных котиков
         const sadCats = [
             "photo_6_2025-02-02_23-18-50.jpg",
             "photo_7_2025-02-02_23-18-50.jpg",
             "photo_3_2025-02-02_23-18-50.jpg",
-            "photo_5_2025-02-02_23-18-50.jpg",
-            "photo_2025-02-03_00-17-25.jpg"
+            "photo_5_2025-02-02_23-18-50.jpg"
         ];
 
+        // Когда нажимает "Yes"
         yesBtn.addEventListener("click", function() {
-            question.innerText = "Yay! Now you're my Valentine ❤️";
-            catImg.src = "photo_3_2025-02-02_23-18-50.jpg"; // Счастливый котик
-            yesBtn.style.fontSize = "30px";
-            noBtn.style.display = "none";
-            message.innerText = "I love you! 🥰";
+            mainContent.innerHTML = `
+                <h1>Yay! You are my Valentine! ❤️</h1>
+                <img src="photo_2025-02-03_00-17-25.jpg" alt="Happy Cat">
+                <h2>I love you so much! 🥰</h2>
+            `;
         });
 
+        // Когда нажимает "No"
         noBtn.addEventListener("click", function() {
             if (count < sadCats.length) {
-                catImg.src = sadCats[count]; // Меняем картинку котика
+                catImg.src = sadCats[count]; // Меняем грустного котика
             }
             count++;
             noBtn.style.fontSize = `${20 - count * 3}px`; // Уменьшаем "No"
@@ -93,10 +95,11 @@
             message.innerText = "Pookie, please :("; 
 
             if (count >= 5) {
-                noBtn.style.display = "none"; // Прячем "No" после 5 нажатий
+                noBtn.style.display = "none"; // Убираем "No" после 5 нажатий
             }
         });
     </script>
 
 </body>
 </html>
+
