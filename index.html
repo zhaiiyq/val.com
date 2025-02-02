@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe4e1;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        #message {
+            font-size: 18px;
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        img {
+            width: 200px;
+            transition: 0.3s;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+            font-size: 20px;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="question">Will you be my Valentine? 🥰</h1>
+        <img id="cat" src="https://i.imgur.com/qnKvV2L.png" alt="Sad Cat with Flower">
+        <br>
+        <button id="yes">Yes ❤️</button>
+        <button id="no">No ❌</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let count = 0;
+        const yesBtn = document.getElementById("yes");
+        const noBtn = document.getElementById("no");
+        const question = document.getElementById("question");
+        const catImg = document.getElementById("cat");
+        const message = document.getElementById("message");
+
+        yesBtn.addEventListener("click", function() {
+            question.innerText = "Yay! Now you're my Valentine ❤️";
+            catImg.src = "https://i.imgur.com/8K3uP7M.png"; // Happy cat
+            yesBtn.style.fontSize = "30px";
+            noBtn.style.display = "none";
+            message.innerText = "I love you! 🥰";
+        });
+
+        noBtn.addEventListener("click", function() {
+            count++;
+            noBtn.style.fontSize = `${20 - count * 3}px`; // Shrinking "No" button
+            yesBtn.style.fontSize = `${20 + count * 5}px`; // Growing "Yes" button
+            catImg.src = "https://i.imgur.com/Hyf5B7N.png"; // Sad cat
+            message.innerText = "Pookie, please :("; 
+
+            if (count >= 5) {
+                noBtn.style.display = "none"; // Hide "No" after 5 clicks
+            }
+        });
+    </script>
+
+</body>
+</html>
